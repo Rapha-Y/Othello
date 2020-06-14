@@ -6,7 +6,8 @@ namespace Othello
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board game_board = new Board();
+            game_board.ShowBoard();
         }
     }
 }

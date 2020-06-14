@@ -1,0 +1,13 @@
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.exe
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.deps.json
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.runtimeconfig.json
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.runtimeconfig.dev.json
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.dll
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\bin\Debug\netcoreapp3.1\Othello.pdb
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.csprojAssemblyReference.cache
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.AssemblyInfoInputs.cache
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.AssemblyInfo.cs
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.csproj.CoreCompileInputs.cache
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.dll
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.pdb
+C:\Users\Anni\Documents\Projects\Othello\Othello\Othello\obj\Debug\netcoreapp3.1\Othello.genruntimeconfig.cache
