@@ -6,8 +6,11 @@ namespace Othello
 {
     class Board
     {
-        //8x8 board w/room for coordinates
-        private char[,] GameBoard = new char[9, 9];
+        const int BLACK = 1;
+        const int WHITE = -1;
+
+        //8x8 board
+        private int[,] GameBoard = new int[8, 8];
         public Board()
         {
             this.InitBoard();
@@ -15,31 +18,19 @@ namespace Othello
         public void InitBoard()
         {
             //clear board
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 9; j++)
+                for (int j = 0; j < 8; j++)
                 {
-                    this.GameBoard[i, j] = ' ';
+                    this.GameBoard[i, j] = 0;
                 }
             }
 
-            //letter labels for 1st column
-            for (int i = 1; i < 9; i++)
-            {
-                this.GameBoard[i, 0] = (char) (i+64);
-            }
-
-            //number labels for 1st row
-            for (int j = 1; j < 9; j++)
-            {
-                this.GameBoard[0, j] = (char) (j+48);
-            }
-
             //central stones
-            this.GameBoard[4, 4] = '\u25CF';
-            this.GameBoard[4, 5] = '\u25CB';
-            this.GameBoard[5, 4] = '\u25CB';
-            this.GameBoard[5, 5] = '\u25CF';
+            this.GameBoard[3, 3] = WHITE;
+            this.GameBoard[3, 4] = BLACK;
+            this.GameBoard[4, 3] = BLACK;
+            this.GameBoard[4, 4] = WHITE;
         }
         public void ShowBoard()
         {
@@ -48,22 +39,43 @@ namespace Othello
             int i = 0;
             int j = 0;
 
-            //empty space
+            //blank intersection
             Console.Out.Write("   ");
 
-            //1st row, only row with a different 1st column
+            //column labels
+            char utfNumber;
             for (j = 1; j < 9; j++)
             {
-                Console.Out.Write($"[{this.GameBoard[i, j]}]");
+                utfNumber = (char)(j + 48);
+                Console.Out.Write($"[{utfNumber}]");
             }
             Console.Out.WriteLine();
 
-            //2nd to 9th rows
+            char utfChar;
             for (i = 1; i < 9; i++)
             {
                 for (j = 0; j < 9; j++)
                 {
-                    Console.Out.Write($"[{this.GameBoard[i, j]}]");
+                    if (j == 0)
+                    {
+                        //row labels
+                        utfChar = (char)(i + 64);
+                        Console.Out.Write($"[{utfChar}]");
+                    } else
+                    {
+                        switch(this.GameBoard[i - 1, j - 1])
+                        {
+                            case -1:
+                                Console.Out.Write("[\u25CF]");
+                                break;
+                            case 0:
+                                Console.Out.Write("[ ]");
+                                break;
+                            case 1:
+                                Console.Out.Write("[\u25CB]");
+                                break;
+                        }
+                    }
                 }
                 Console.Out.WriteLine();
             }
