@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Othello
@@ -219,6 +220,57 @@ namespace Othello
             }
 
             return moveNumber;
+        }
+
+        public void GetInput()
+        {            
+            switch (this.CurrentPlayer)
+            {
+                case BLACK:
+                    Console.Out.Write("Player 1, select your next move: ");
+                    break;
+                case WHITE:
+                    Console.Out.Write("Player 2, select your next move: ");
+                    break;
+            }
+
+            string move;
+            int x = -1;
+            int y = -1;
+            bool valid_move = false;
+
+            while (!valid_move)
+            {
+                move = Console.ReadLine();
+                while (move.Length != 2)
+                {
+                    Console.Out.Write("Your move must be the row, followed by the column (i.e.: A1). Try again: ");
+                    move = Console.ReadLine();
+                }
+                
+                char[] move_arr = move.ToCharArray();
+                int temp_x = (int)move_arr[0]; //65 to 72 (uppercase) or 97 to 104 (lowercase)
+                int temp_y = (int)move_arr[1]; //49 to 57
+                if (temp_x < 65 || (temp_x > 72 && temp_x < 97) || temp_x > 104 || temp_y < 49 || temp_y > 57)
+                {
+                    Console.Out.Write("Your move must be the row, followed by the column (i.e.: A1). Try again: ");
+                } 
+                else //convert char values into its respective int values
+                {
+                    if (temp_x < 72)
+                    {
+                        x = temp_x - 65;
+                    }
+                    else
+                    {
+                        x = temp_x - 104;
+                    }
+                    y = temp_y - 49;
+                    valid_move = !valid_move;
+
+                }
+            }
+            Console.Out.WriteLine("Your input would be x=" + x + " and y=" + y + ", as indexes of the 2D array");
         }
 
         public void ShowBoard()
