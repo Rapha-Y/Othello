@@ -9,7 +9,14 @@ namespace Othello
             Board game_board = new Board();
             game_board.GetMoves();
             game_board.ShowBoard();
-            game_board.GetInput();
+            game_board.MakeMove();
+
+            game_board.GetMoves();
+            game_board.ShowBoard();
+            game_board.MakeMove();
+
+            game_board.GetMoves();
+            game_board.ShowBoard();
         }
     }
 }
