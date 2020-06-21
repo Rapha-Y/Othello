@@ -75,12 +75,12 @@ namespace Othello
                     {
                         for (
                             int i = 2;
-                            x - i >= 0 && y + i <= 7
-                            && this.GameBoard[x - i, y + i] != 0 && this.GameBoard[x - i, y + i] != 2;
+                            x + i <= 7 && y - i >= 0
+                            && this.GameBoard[x + i, y - i] != 0 && this.GameBoard[x + i, y - i] != 2;
                             i++
                         )
                         {
-                            if (this.GameBoard[x - i, y + i] == this.CurrentPlayer)
+                            if (this.GameBoard[x + i, y - i] == this.CurrentPlayer)
                             {
                                 return true;
                             }
