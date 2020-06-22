@@ -211,7 +211,7 @@ namespace Othello
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (this.IsMove(i, j))
+                    if (this.GameBoard[i, j] == EMPTY && this.IsMove(i, j))
                     {
                         this.GameBoard[i, j] = POSSIBLE;
                         moveNumber++;
@@ -605,9 +605,40 @@ namespace Othello
                     }
                 }
             }
+        }
 
-            this.ClearMoves();
-            this.CurrentPlayer = -this.CurrentPlayer;
+        public void PlayGame()
+        {
+            this.InitBoard();
+
+            while (this.ConsecutivePasses < 2)
+            {
+                int move_number = this.GetMoves();
+                this.ShowBoard();
+
+                if (move_number > 0)
+                {
+                    this.ConsecutivePasses = 0;
+                    this.MakeMove();
+                    this.ClearMoves();
+                } 
+                else
+                {
+                    this.ConsecutivePasses++;
+                    switch (this.CurrentPlayer)
+                    {
+                        case BLACK:
+                            Console.Out.WriteLine("P1 is out of moves, P1 passes!");
+                            break;
+                        case WHITE:
+                            Console.Out.WriteLine("P2 is out of moves, P2 passes!");
+                            break;
+                    }                            
+                }
+                this.CurrentPlayer = -this.CurrentPlayer;
+            }
+
+            Console.Out.WriteLine("Game over!");
         }
     }
 }
