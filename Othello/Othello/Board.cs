@@ -607,6 +607,30 @@ namespace Othello
             }
         }
 
+        private void GetScore(out int p1, out int p2)
+        {
+            int p1_score = 0;
+            int p2_score = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (this.GameBoard[i, j] == BLACK)
+                    {
+                        p1_score++;
+                    } 
+                    else if (this.GameBoard[i, j] == WHITE)
+                    {
+                        p2_score++;
+                    }
+                }
+            }
+
+            p1 = p1_score;
+            p2 = p2_score;
+        }
+
         public void PlayGame()
         {
             this.InitBoard();
@@ -615,6 +639,11 @@ namespace Othello
             {
                 int move_number = this.GetMoves();
                 this.ShowBoard();
+
+                int p1_score;
+                int p2_score;
+                this.GetScore(out p1_score, out p2_score);
+                Console.Out.WriteLine($"\nScore - P1: {p1_score} | P2: {p2_score}");
 
                 if (move_number > 0)
                 {
@@ -636,6 +665,8 @@ namespace Othello
                     }                            
                 }
                 this.CurrentPlayer = -this.CurrentPlayer;
+
+                Console.Out.WriteLine();
             }
 
             Console.Out.WriteLine("Game over!");
