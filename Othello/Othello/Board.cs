@@ -550,58 +550,64 @@ namespace Othello
                 }
             }
             //vertical top flips
-            if (this.GameBoard[x - 1, y] == -this.CurrentPlayer)
+            if (x > 1)
             {
-                flip_number = 1;
-                flippable = false;
-
-                for (
-                    i = 2;
-                    x - i >= 0 && this.GameBoard[x - i, y] == -this.CurrentPlayer;
-                    i++
-                )
+                if (this.GameBoard[x - 1, y] == -this.CurrentPlayer)
                 {
-                    flip_number++;
-                }
+                    flip_number = 1;
+                    flippable = false;
 
-                if (y - i >= 0 && this.GameBoard[x - i, y] == this.CurrentPlayer)
-                {
-                    flippable = true;
-                }
-
-                if (flippable)
-                {
-                    for (i = 1; i <= flip_number; i++)
+                    for (
+                        i = 2;
+                        x - i >= 0 && this.GameBoard[x - i, y] == -this.CurrentPlayer;
+                        i++
+                    )
                     {
-                        this.GameBoard[x - i, y] = this.CurrentPlayer;
+                        flip_number++;
+                    }
+
+                    if (y - i >= 0 && this.GameBoard[x - i, y] == this.CurrentPlayer)
+                    {
+                        flippable = true;
+                    }
+
+                    if (flippable)
+                    {
+                        for (i = 1; i <= flip_number; i++)
+                        {
+                            this.GameBoard[x - i, y] = this.CurrentPlayer;
+                        }
                     }
                 }
             }
             //vertical bottom flips
-            if (this.GameBoard[x + 1, y] == -this.CurrentPlayer)
+            if (x < 6)
             {
-                flip_number = 1;
-                flippable = false;
-
-                for (
-                    i = 2;
-                    x + i <= 7 && this.GameBoard[x + i, y] == -this.CurrentPlayer;
-                    i++
-                )
+                if (this.GameBoard[x + 1, y] == -this.CurrentPlayer)
                 {
-                    flip_number++;
-                }
+                    flip_number = 1;
+                    flippable = false;
 
-                if (y + i <= 7 && this.GameBoard[x + i, y] == this.CurrentPlayer)
-                {
-                    flippable = true;
-                }
-
-                if (flippable)
-                {
-                    for (i = 1; i <= flip_number; i++)
+                    for (
+                        i = 2;
+                        x + i <= 7 && this.GameBoard[x + i, y] == -this.CurrentPlayer;
+                        i++
+                    )
                     {
-                        this.GameBoard[x + i, y] = this.CurrentPlayer;
+                        flip_number++;
+                    }
+
+                    if (x + i <= 7 && this.GameBoard[x + i, y] == this.CurrentPlayer)
+                    {
+                        flippable = true;
+                    }
+
+                    if (flippable)
+                    {
+                        for (i = 1; i <= flip_number; i++)
+                        {
+                            this.GameBoard[x + i, y] = this.CurrentPlayer;
+                        }
                     }
                 }
             }
