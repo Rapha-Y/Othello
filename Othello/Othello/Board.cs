@@ -566,7 +566,7 @@ namespace Othello
                         flip_number++;
                     }
 
-                    if (y - i >= 0 && this.GameBoard[x - i, y] == this.CurrentPlayer)
+                    if (x - i >= 0 && this.GameBoard[x - i, y] == this.CurrentPlayer)
                     {
                         flippable = true;
                     }
